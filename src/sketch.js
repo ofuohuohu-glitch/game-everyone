@@ -49,7 +49,7 @@ function judgeResult(player, cpu) {
 function playGame() {
 
   // ①ゲームが終わっていたら何もしない
-  if (isGameOver === ture) {
+  if (isGameOver === true) {
     return; // ここで処理を止める
   }
   // ②CPUの手を決める
