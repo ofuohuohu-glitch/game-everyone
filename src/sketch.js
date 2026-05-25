@@ -10,6 +10,13 @@ function setup() {
   noCanvas(); // HTMLでUIを作るのでcanvasは不要
 }
 
+function startGame() {
+  // スタート画面を隠す
+  document.getElementById("start-screen").style.display = "none";
+  // ゲーム画面を表示する
+  document.getElementById("game-screen").style.display = "block";
+}
+
 function selectHand(hand) {
   playerHand = hand;
   playGame();
