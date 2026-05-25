@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>5連勝じゃんけんゲーム</title>
-  <link rel="stylesheet" href="style_uchibe_1.css">
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>5連勝じゃんけん</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!--スタート画面-->
-  <div id="start-screen">
-    <h1 class="start-title">じゃんけんゲーム</h1>
-    <button class="start-button">スタート</button>
-  </div>
-  <!--ゲーム画面-->
-  <div id="game-screen">
-    <!-- ここにゲーム本体をあとで作る -->
-  </div>
-
-  
- <!-- p5.js と sketch.js を読み込む -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-  <script src="sketch.js"></script>
-  
+ 
+  <h1>5連勝じゃんけん</h1>
+<p>5回連続で勝つとクリア！負けたら連勝リセット！</p>
+ 
+  <!-- じゃんけんボタン -->
+<button onclick="selectHand('グー')">グー✊</button>
+<button onclick="selectHand('チョキ')">チョキ✌️</button>
+<button onclick="selectHand('パー')">パー✋</button>
+ 
+  <!-- 表示欄 -->
+<p id="playerDisplay">あなた：</p>
+<p id="cpuDisplay">CPU：</p>
+<p id="resultDisplay">結果：</p>
+<p id="streakDisplay">現在の連勝数：0</p>
+ 
+  <!-- リセットボタン -->
+<button onclick="resetGame()">リセット</button>
+ 
+  <!-- p5.js と sketch.js を読み込む -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+<script src="sketch.js"></script>
+ 
 </body>
 </html>
