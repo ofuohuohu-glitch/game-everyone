@@ -1,0 +1,30 @@
+#game-screen {
+  text-align: center;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  padding-top: 60px;
+}
+
+.hands-area {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 30px;
+}
+
+.hand-box {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.hand-box img {
+  width: 200px;
+  height: auto;
+}
+
+.button-area button {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 10px;
+  padding: 16px 32px;
+  border-radius: 20px;
+}

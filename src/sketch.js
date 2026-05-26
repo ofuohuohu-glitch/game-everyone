@@ -87,4 +87,13 @@ function updateDisplay() {
   document.getElementById("cpuDisplay").textContent = "CPU：" + cpuHand;
   document.getElementById("resultDisplay").textContent = "結果：" + resultText;
   document.getElementById("streakDisplay").textContent = "現在の連勝数：" + winStreak;
+
+  const imageMap = {
+    "グー": "gu.png",
+    "チョキ": "tyoki.png",
+    "パー": "pa.png"
+  };
+
+  document.getElementById("player-hand-image").src = imageMap[playerHand];
+  document.getElementById("cpu-hand-image").src = imageMap[cpuHand];
 }

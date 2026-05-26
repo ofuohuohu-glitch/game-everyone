@@ -4,22 +4,44 @@
   <meta charset="UTF-8">
   <title>5連勝じゃんけんゲーム</title>
   <link rel="stylesheet" href="style_uchibe_1.css">
+  <link rel="stylesheet" href="style_Hayakawa.css">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <!--スタート画面-->
   <div id="start-screen">
     <h1 class="start-title">じゃんけんゲーム</h1>
     <button class="start-button" onclick="startGame()">スタート</button>
   </div>
+
   <!--ゲーム画面-->
   <div id="game-screen" style="display:none">
-    <button class="hand-gu" onclick="selectHand()">ぐー</button>
-    <button class="hand-tyoki" onclick="selectHand()">ちょき</button>
-    <button class="hand-pa" onclick="selectHand()">ぱー</button>
+
+    <div class="hands-area">
+      <div class="hand-box">
+        <p id="cpuDisplay">CPU：</p>
+        <img id="cpu-hand-image" src="gu.png" alt="CPUの手">
+      </div>
+
+      <div class="hand-box">
+        <p id="playerDisplay">あなた：</p>
+        <img id="player-hand-image" src="gu.png" alt="あなたの手">
+      </div>
+    </div>
+
+    <p id="resultDisplay">結果：</p>
+    <p id="streakDisplay">現在の連勝数：0</p>
+
+    <div class="button-area">
+      <button class="hand-gu" onclick="selectHand('グー')">ぐー</button>
+      <button class="hand-tyoki" onclick="selectHand('チョキ')">ちょき</button>
+      <button class="hand-pa" onclick="selectHand('パー')">ぱー</button>
+    </div>
+
   </div>
 
- <!-- p5.js と sketch.js を読み込む -->
+  <!-- p5.js と sketch.js を読み込む -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
   <script src="sketch.js"></script>
 
