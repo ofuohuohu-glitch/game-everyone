@@ -17,13 +17,13 @@ function startGame() {
 
 function goToStart() {
   document.getElementById("game-screen").style.display = "none";
-  document.getElementById("start-screen").style.display = "block";
-
+  document.getElementById("start-screen").style.display = "flex";
   playerHand = "";
   cpuHand = "";
   resultText = "";
   winStreak = 0;
   isGameOver = false;
+}
 
   document.getElementById("backButton").style.display = "none";
   document.getElementById("playerDisplay").textContent = "あなた：";
