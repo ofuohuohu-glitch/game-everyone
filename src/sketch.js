@@ -23,7 +23,6 @@ function goToStart() {
   resultText = "";
   winStreak = 0;
   isGameOver = false;
-}
 
   document.getElementById("backButton").style.display = "none";
   document.getElementById("playerDisplay").textContent = "あなた：";
