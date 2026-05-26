@@ -13,8 +13,8 @@
 );
 }
 .start-title{
- font-size: 800%; 
- font-family: "M PLUS Rounded 1c", sans-serif; 
+ font-size: 800%;
+ font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 900;
   color: #ff4fa3;
   margin: 20px;
@@ -37,7 +37,7 @@
     #ff9be8
   );
     box-shadow:
-    0 10px 0 #ff4fa3,                     
+    0 10px 0 #ff4fa3,
     0 15px 25px rgba(255,105,180,0.4);
 
      cursor: pointer;
