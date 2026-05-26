@@ -11,24 +11,28 @@ function setup() {
 }
 
 function startGame() {
-  // スタート画面を隠す
   document.getElementById("start-screen").style.display = "none";
-  // ゲーム画面を表示する
   document.getElementById("game-screen").style.display = "block";
 }
 
 function goToStart() {
-  // ゲーム画面を隠す
   document.getElementById("game-screen").style.display = "none";
-  // スタート画面を表示する
   document.getElementById("start-screen").style.display = "block";
-  // 変数を全部リセットする
+
   playerHand = "";
   cpuHand = "";
   resultText = "";
   winStreak = 0;
   isGameOver = false;
+
   document.getElementById("backButton").style.display = "none";
+  document.getElementById("playerDisplay").textContent = "あなた：";
+  document.getElementById("cpuDisplay").textContent = "CPU：";
+  document.getElementById("resultDisplay").textContent = "結果：";
+  document.getElementById("streakDisplay").textContent = "現在の連勝数：0";
+
+  document.getElementById("player-hand-image").src = "button_gu.png";
+  document.getElementById("cpu-hand-image").src = "button_gu.png";
 }
 
 function selectHand(hand) {
@@ -37,17 +41,15 @@ function selectHand(hand) {
 }
 
 function getCpuHand() {
-  let index = floor(random(3)); //0か1をランダムで選ぶ
-  return hands[index];          //その番号の手を返す
+  let index = floor(random(3));
+  return hands[index];
 }
 
-
 function judgeResult(player, cpu) {
-  // まずあいこを確認
   if (player === cpu) {
     return "あいこ";
   }
-  // 勝ちのパターン3つを確認
+
   if (
     (player === "グー" && cpu === "チョキ") ||
     (player === "チョキ" && cpu === "パー") ||
@@ -55,42 +57,34 @@ function judgeResult(player, cpu) {
   ) {
     return "勝ち";
   }
-  //どれにも当てはまらなければ負け
+
   return "負け";
 }
 
-
 function playGame() {
-
-  // ①ゲームが終わっていたら何もしない
   if (isGameOver === true) {
-    return; // ここで処理を止める
+    return;
   }
-  // ②CPUの手を決める
-  cpuHand = getCpuHand(); // CPUの手をランダムで決めてcpuHand箱に入れる
 
-  // ③勝敗を判定する
-  let result = judgeResult(playerHand, cpuHand)
+  cpuHand = getCpuHand();
 
-  // ④結果に応じて処理を分岐する
+  let result = judgeResult(playerHand, cpuHand);
+
   if (result === "勝ち") {
-    winStreak = winStreak + 1; //連勝数を1増やす
+    winStreak = winStreak + 1;
 
     if (winStreak === 5) {
-      // 5連勝達成！
       isGameOver = true;
       resultText = "🎉５連勝達成！クリア！";
       document.getElementById("backButton").style.display = "block";
     } else {
-      //まだ5連勝じゃない
-      resultText = "勝ち！あと " + (5 - winStreak)
+      resultText = "勝ち！あと " + (5 - winStreak);
     }
 
   } else if (result === "負け") {
-    winStreak = 0; //連勝リセット
+    winStreak = 0;
     resultText = "負け…連勝がリセットされた😢";
   } else {
-    //　あいこ(winStreakはそのまま)
     resultText = "あいこ！そのまま続けよう🤝";
   }
 
@@ -104,9 +98,9 @@ function updateDisplay() {
   document.getElementById("streakDisplay").textContent = "現在の連勝数：" + winStreak;
 
   const imageMap = {
-    "グー": "gu.png",
-    "チョキ": "tyoki.png",
-    "パー": "pa.png"
+    "グー": "button_gu.png",
+    "チョキ": "button_tyoki.png",
+    "パー": "button_pa.png"
   };
 
   document.getElementById("player-hand-image").src = imageMap[playerHand];
