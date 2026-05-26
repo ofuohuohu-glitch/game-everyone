@@ -21,10 +21,22 @@
   height: auto;
 }
 
-.button-area button {
-  font-size: 28px;
-  font-weight: 900;
-  margin: 10px;
-  padding: 16px 32px;
-  border-radius: 20px;
+.image-button {
+  width: 190px;
+  height: 120px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-button img {
+  width: 170px;
+  height: 110px;
+  object-fit: contain;
+  display: block;
 }
