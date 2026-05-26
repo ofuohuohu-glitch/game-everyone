@@ -88,3 +88,4 @@ function updateDisplay() {
   document.getElementById("resultDisplay").textContent = "結果：" + resultText;
   document.getElementById("streakDisplay").textContent = "現在の連勝数：" + winStreak;
 }
+
