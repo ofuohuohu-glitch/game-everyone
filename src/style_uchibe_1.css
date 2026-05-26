@@ -40,6 +40,203 @@
     0 10px 0 #ff4fa3,                     
     0 15px 25px rgba(255,105,180,0.4);
 
+     cursor: pointer;
+
+  transition: 0.2s;
+
+  animation: pyon 1.2s infinite;
+}
+
+/* ホバー */
+.start-button:hover {
+  transform: scale(1.08);
+}
+
+/* 押した時 */
+.start-button:active {
+  transform: translateY(6px);
+
+
     text-shadow:
     3px 3px 0 #f2f84a;
+
+    #game-screen{
+    min-height: 100vh;
+
+    background: linear-gradient(
+    135deg,
+    #fff4b8,
+    #ffd6ec,
+    #d6f5ff
+  );
+    padding: 40px;
+
+    display: none;
 }
+
+/* ゲーム画面 */
+#game-screen{
+  min-height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    #fff4b8,
+    #ffd6ec,
+    #d6f5ff
+  );
+  padding: 40px;
+  display: none;
+}
+/* 上エリア */
+.top-area{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+/* CPUの箱 */
+.cpu-box{
+  width: 60%;
+  background: rgba(255,255,255,0.5);
+  border: 5px solid #ffb3d9;
+  border-radius: 40px;
+  padding: 30px;
+  text-align: center;
+  box-shadow:
+    0 10px 20px rgba(255,182,193,0.4);
+}
+/* CPUタイトル */
+.cpu-title{
+  font-weight: 900;
+  color: #ff5cb8;
+  margin-bottom: 20px;
+  text-shadow:
+    3px 3px 0 #ffffff;
+}
+/* CPUの手 */
+#cpuDisplay{
+
+  font-size: 90px;
+  font-weight: 900;
+  color: #ff5cb8;
+  animation: purupuru 0.8s infinite;
+}
+/* 連勝ボックス */
+.streak-box{
+  width: 25%;
+  background: rgba(255,255,255,0.6);
+  border: 5px solid #ffb3d9;
+  border-radius: 30px;
+  padding: 25px;
+  text-align: center;
+  box-shadow:
+    0 10px 20px rgba(255,182,193,0.4);
+}
+/* 連勝表示 */
+#streakDisplay{
+  font-size: 35px;
+  font-weight: 900;
+  color: #ff5cb8;
+  text-shadow:
+    2px 2px 0 #ffffff;
+}
+/* 結果 */
+.result-box{
+  margin-top: 40px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 30px;
+  padding: 25px;
+  text-align: center;
+  box-shadow:
+    0 10px 20px rgba(255,182,193,0.4);
+}
+/* 結果文字 */
+#resultDisplay{
+  font-size: 45px;
+  font-weight: 900;
+  color: #ff5cb8;
+}
+/* 手エリア */
+.hand-area{
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+/* 手ボタン */
+.hand-button{
+  width: 220px;
+  height: 220px;
+  border: none;
+  border-radius: 50%;
+  font-size: 90px;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow:
+    0 10px 0 #ffb3d9,
+    0 15px 25px rgba(255,182,193,0.5);
+
+  animation: pyon 1.5s infinite;
+}
+/* ホバー */
+.hand-button:hover{
+  transform: scale(1.08);
+}
+/* 押した時 */
+.hand-button:active{
+  transform: translateY(6px);
+  box-shadow:
+    0 5px 0 #ffb3d9;
+}
+/* グー */
+.gu{
+  background: #ffb6d9;
+}
+/* チョキ */
+.choki{
+  background: #ffe680;
+}
+/* パー */
+.pa{
+  background: #9ed8ff;
+}
+/* プレイヤー表示 */
+#playerDisplay{
+  margin-top: 50px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 900;
+  color: #ff5cb8;
+  text-shadow:
+    3px 3px 0 #ffffff;
+}
+/* プルプル */
+@keyframes purupuru {
+  0%{
+    transform: translate(0,0);
+  }
+  25%{
+    transform: translate(2px,-2px);
+  }
+  50%{
+    transform: translate(-2px,2px);
+  }
+  75%{
+    transform: translate(2px,2px);
+  }
+  100%{
+    transform: translate(0,0);
+  }
+}
+/* ぴょん */
+@keyframes pyon {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-10px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+    
