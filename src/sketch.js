@@ -17,6 +17,19 @@ function startGame() {
   document.getElementById("game-screen").style.display = "block";
 }
 
+function goToStart() {
+  // ゲーム画面を隠す
+  document.getElementById("game-screen").style.display = "none";
+  // スタート画面を表示する
+  document.getElementById("start-screen").style.display = "block";
+  // 変数を全部リセットする
+  playerHand = "";
+  cpuHand = "";
+  resultText = "";
+  winStreak = 0;
+  isGameOver = false;
+}
+
 function selectHand(hand) {
   playerHand = hand;
   playGame();
@@ -66,6 +79,7 @@ function playGame() {
       // 5連勝達成！
       isGameOver = true;
       resultText = "🎉５連勝達成！クリア！";
+      document.getElementById("backButton").style.display = "block";
     } else {
       //まだ5連勝じゃない
       resultText = "勝ち！あと " + (5 - winStreak)
