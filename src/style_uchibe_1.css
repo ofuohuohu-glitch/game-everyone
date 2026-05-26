@@ -73,3 +73,16 @@
 
     display: none;
 }
+/* ゲーム画面 */
+#game-screen{
+  min-height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    #fff4b8,
+    #ffd6ec,
+    #d6f5ff
+  );
+  padding: 40px;
+  display: none;
+}
