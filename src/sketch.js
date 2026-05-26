@@ -28,6 +28,7 @@ function goToStart() {
   resultText = "";
   winStreak = 0;
   isGameOver = false;
+  document.getElementById("backButton").style.display = "none";
 }
 
 function selectHand(hand) {
@@ -111,4 +112,3 @@ function updateDisplay() {
   document.getElementById("player-hand-image").src = imageMap[playerHand];
   document.getElementById("cpu-hand-image").src = imageMap[cpuHand];
 }
-
