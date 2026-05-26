@@ -59,22 +59,10 @@
 
     text-shadow:
     3px 3px 0 #f2f84a;
-
-    #game-screen{
-    min-height: 100vh;
-
-    background: linear-gradient(
-    135deg,
-    #fff4b8,
-    #ffd6ec,
-    #d6f5ff
-  );
-    padding: 40px;
-
-    display: none;
 }
-/* ゲーム画面 */
+
 #game-screen{
+
   min-height: 100vh;
 
   background: linear-gradient(
@@ -83,6 +71,248 @@
     #ffd6ec,
     #d6f5ff
   );
+
+  /* 背景を大きく */
+  background-size: 200% 200%;
+
+  /* 背景アニメーション */
+  animation: bgmove 8s ease infinite;
+
   padding: 40px;
+
   display: none;
+}
+
+
+
+/* CPUとプレイヤー画像 */
+#cpu-hand-image,
+#player-hand-image{
+
+  width: 400px;
+
+  height: auto;
+}
+
+
+
+/* ボタンエリア */
+.button-area{
+
+  margin-top: 60px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 70px;
+}
+
+
+
+/* ボタン共通 */
+.hand-gu,
+.hand-tyoki,
+.hand-pa{
+  
+  width: 190px;
+
+  height: 120px;
+
+  border: none;
+
+  border-radius: 999px;
+  
+  position: relative;
+
+  overflow: hidden;
+
+  font-size: 55px;
+
+  font-family: "M PLUS Rounded 1c", sans-serif;
+
+  font-weight: 900;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  box-shadow:
+    0 8px 0 rgba(0,0,0,0.12),
+    0 15px 25px rgba(255,182,193,0.5);
+}
+
+
+
+/* グー */
+.hand-gu{
+
+  background: linear-gradient(
+    45deg,
+    #ff8fc7,
+    #ffb6d9
+  );
+}
+
+
+
+/* チョキ */
+.hand-tyoki{
+
+  background: linear-gradient(
+    45deg,
+    #ffd95e,
+    #fff0a8
+  );
+
+  color: white;
+}
+
+
+
+/* パー */
+.hand-pa{
+
+  background: linear-gradient(
+    45deg,
+    #8ed8ff,
+    #b8ecff
+  );
+}
+
+
+
+/* ホバー */
+.hand-gu:hover,
+.hand-tyoki:hover,
+.hand-pa:hover{
+
+  transform:
+    translateY(-10px)
+    scale(1.08);
+
+  box-shadow:
+    0 15px 0 rgba(0,0,0,0.12),
+    0 20px 30px rgba(255,182,193,0.5);
+}
+
+
+
+/* 押した時 */
+.hand-gu:active,
+.hand-tyoki:active,
+.hand-pa:active{
+
+  transform: translateY(5px);
+
+  box-shadow:
+    0 5px 0 rgba(0,0,0,0.12);
+}
+
+
+
+/* 結果 */
+#resultDisplay{
+
+  width: fit-content;
+
+  margin: 40px auto 20px;
+
+  padding: 20px 50px;
+
+  font-size: 45px;
+
+  font-family: "M PLUS Rounded 1c", sans-serif;
+
+  font-weight: 900;
+
+  color: white;
+
+  background: linear-gradient(
+    45deg,
+    #ff8fc7,
+    #ffb6d9
+  );
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 0 #ff6bb5,
+    0 15px 25px rgba(255,105,180,0.4);
+
+  text-shadow:
+    3px 3px 0 rgba(255,255,255,0.3);
+
+  text-align: center;
+
+  animation: pyon 1.2s infinite;
+}
+
+
+
+/* 連勝数 */
+#streakDisplay{
+
+  width: fit-content;
+
+  margin: 0 auto;
+
+  padding: 8px 30px;
+
+  font-size: 20px;
+
+  font-family: "M PLUS Rounded 1c", sans-serif;
+
+  font-weight: 900;
+
+  color: #ff5cb8;
+
+  background: rgba(255,255,255,0.7);
+
+  border: 5px solid #ffb3d9;
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 20px rgba(255,182,193,0.4);
+
+  text-align: center;
+}
+
+
+
+/* 背景がゆっくり動く */
+@keyframes bgmove{
+
+  0%{
+    background-position: left;
+  }
+
+  50%{
+    background-position: right;
+  }
+
+  100%{
+    background-position: left;
+  }
+}
+
+
+
+/* ぴょん */
+@keyframes pyon{
+
+  0%{
+    transform: translateY(0);
+  }
+
+  50%{
+    transform: translateY(-8px);
+  }
+
+  100%{
+    transform: translateY(0);
+  }
 }
