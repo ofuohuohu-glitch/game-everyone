@@ -21,7 +21,7 @@ function goToStart() {
   // ゲーム画面を隠す
   document.getElementById("game-screen").style.display = "none";
   // スタート画面を表示する
-  document.getElementById("start-screen").style.display = "block";
+  document.getElementById("start-screen").style.display = "flex";
   // 変数を全部リセットする
   playerHand = "";
   cpuHand = "";
