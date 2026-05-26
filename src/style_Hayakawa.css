@@ -1,42 +1,134 @@
 #game-screen {
+  min-height: 100vh;
   text-align: center;
   font-family: "M PLUS Rounded 1c", sans-serif;
-  padding-top: 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* 手エリア */
 .hands-area {
+  position: relative;
+  size:scale(30);
+  width: 1500px;
+  height: 600px;
+  padding:50px;
+  margin: 80px 100px 10px !important;
+}
+
+/* CPU・あなたの箱 */
+.hand-box {
+  position: absolute;
+  top: 0;
+  width: 550px;
+  height: 520px;
+  font-size: 34px;
+  font-weight: 900;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  overflow: visible;
+}
+
+.hand-box:first-child {
+  left: 0;
+  text-align: center;
+}
+
+.hand-box:last-child {
+  right: 0;
+  text-align: center;
+}
+
+.hand-box p {
+  margin: 0 0 20px;
+}
+
+/* 手画像 */
+#cpu-hand-image,
+#player-hand-image {
+  position: absolute;
+  top: 160px;
+  width: 900px !important;
+  height: auto;
+  transform-origin: center center;
+}
+
+#cpu-hand-image {
+  left: 20%;
+  transform: translateX(-50%) rotate(90deg) scale(4.5);
+  animation: cpuHandIn 0.45s ease;
+}
+
+#player-hand-image {
+  right: 20%;
+  transform: translateX(50%) rotate(-90deg) scale(4.5);
+  animation: playerHandIn 0.45s ease;
+}
+
+#resultDisplay {
+  font-size: 120px !important;
+  padding: 100px 200px !important;
+  margin: 30px auto 30px !important;
+}
+
+#streakDisplay {
+  font-size: 32px !important;
+  padding: 14px 55px !important;
+  margin: 0 auto 25px !important;
+}
+
+.button-area {
   display: flex;
   justify-content: center;
-  gap: 80px;
-  margin-bottom: 30px;
-}
-
-.hand-box {
-  font-size: 28px;
-  font-weight: 900;
-}
-
-.hand-box img {
-  width: 200px;
-  height: auto;
+  gap: 300px;
+  margin-top: 40px !important;
 }
 
 .image-button {
-  width: 190px;
-  height: 120px;
-  padding: 0;
+  width: 330px !important;
+  height: 210px !important;
+  padding: 0 !important;
   border: none;
-  border-radius: 999px;
+  border-radius: 55px !important;
   overflow: hidden;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .image-button img {
-  width: 170px;
-  height: 110px;
+  width: 260px !important;
+  height: 180px !important;
   object-fit: contain;
   display: block;
+}
+
+@keyframes cpuHandIn {
+  from {
+    transform: translateX(-350px) rotate(90deg) scale(4.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(-50%) rotate(90deg) scale(4.5);
+    opacity: 1;
+  }
+}
+
+@keyframes playerHandIn {
+  from {
+    transform: translateX(350px) rotate(-90deg) scale(4.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(50%) rotate(-90deg) scale(4.5);
+    opacity: 1;
+  }
 }

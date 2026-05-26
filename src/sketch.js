@@ -7,17 +7,18 @@ let isGameOver = false;
 let hands = ["グー", "チョキ", "パー"];
 
 function setup() {
-  noCanvas(); // HTMLでUIを作るのでcanvasは不要
+  noCanvas();
 }
 
 function startGame() {
   document.getElementById("start-screen").style.display = "none";
-  document.getElementById("game-screen").style.display = "block";
+  document.getElementById("game-screen").style.display = "flex";
 }
 
 function goToStart() {
   document.getElementById("game-screen").style.display = "none";
   document.getElementById("start-screen").style.display = "flex";
+
   playerHand = "";
   cpuHand = "";
   resultText = "";
@@ -66,11 +67,10 @@ function playGame() {
   }
 
   cpuHand = getCpuHand();
-
   let result = judgeResult(playerHand, cpuHand);
 
   if (result === "勝ち") {
-    winStreak = winStreak + 1;
+    winStreak++;
 
     if (winStreak === 5) {
       isGameOver = true;
@@ -102,6 +102,18 @@ function updateDisplay() {
     "パー": "button_pa.png"
   };
 
-  document.getElementById("player-hand-image").src = imageMap[playerHand];
-  document.getElementById("cpu-hand-image").src = imageMap[cpuHand];
+  const playerImg = document.getElementById("player-hand-image");
+  const cpuImg = document.getElementById("cpu-hand-image");
+
+  playerImg.src = imageMap[playerHand];
+  cpuImg.src = imageMap[cpuHand];
+
+  playerImg.style.animation = "none";
+  cpuImg.style.animation = "none";
+
+  void playerImg.offsetWidth;
+  void cpuImg.offsetWidth;
+
+  playerImg.style.animation = "playerHandIn 0.4s ease";
+  cpuImg.style.animation = "cpuHandIn 0.4s ease";
 }
