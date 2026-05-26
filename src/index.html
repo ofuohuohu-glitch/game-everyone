@@ -22,12 +22,12 @@
     <div class="hands-area">
       <div class="hand-box">
         <p id="cpuDisplay">CPU：</p>
-        <img id="cpu-hand-image" src="gu.png" alt="CPUの手">
+        <img id="cpu-hand-image" src="button_gu.png" alt="CPUの手">
       </div>
 
       <div class="hand-box">
         <p id="playerDisplay">あなた：</p>
-        <img id="player-hand-image" src="gu.png" alt="あなたの手">
+        <img id="player-hand-image" src="button_gu.png" alt="あなたの手">
       </div>
     </div>
 
@@ -35,11 +35,19 @@
     <p id="streakDisplay">現在の連勝数：0</p>
 
     <div class="button-area">
-      <button class="hand-gu" onclick="selectHand('グー')">ぐー</button>
-      <button class="hand-tyoki" onclick="selectHand('チョキ')">ちょき</button>
-      <button class="hand-pa" onclick="selectHand('パー')">ぱー</button>
+      <button class="hand-gu image-button" onclick="selectHand('グー')">
+        <img src="gu.png" alt="ぐー">
+      </button>
+
+      <button class="hand-tyoki image-button" onclick="selectHand('チョキ')">
+        <img src="tyoki.png" alt="ちょき">
+      </button>
+
+      <button class="hand-pa image-button" onclick="selectHand('パー')">
+        <img src="pa.png" alt="ぱー">
+      </button>
     </div>
-    <!-- 最初は隠しておく -->
+    <!-- 最初は隠しておく スタートに戻るボタン -->
     <button id="backButton" onclick="goToStart()" style="display:none">
       スタートに戻る
     </button>
