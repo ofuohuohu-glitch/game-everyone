@@ -26,7 +26,6 @@ function goToStart() {
   winStreak = 0;
   isGameOver = false;
 
-  document.getElementById("backButton").style.display = "none";
   document.getElementById("playerDisplay").textContent = "あなた：";
   document.getElementById("cpuDisplay").textContent = "CPU：";
   document.getElementById("resultDisplay").textContent = "";
