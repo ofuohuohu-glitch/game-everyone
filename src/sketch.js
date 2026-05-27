@@ -94,9 +94,9 @@ function playGame() {
 function updateDisplay() {
   document.getElementById("playerDisplay").textContent = "あなた：" + playerHand;
   document.getElementById("cpuDisplay").textContent = "CPU：" + cpuHand;
-  document.getElementById("resultDisplay").textContent = "" + resultText;
+  document.getElementById("resultDisplay").textContent = resultText;
   document.getElementById("streakDisplay").textContent = "現在の連勝数：" + winStreak;
-  document.getElementById("resultDisplay").textContent = "" + resultText;
+  document.getElementById("resultDisplay").style.display = "block";
 
 
   const imageMap = {
