@@ -73,6 +73,7 @@
 }
 
 #resultDisplay {
+  display: none;
   font-size: 120px !important;
   padding: 30px 60px !important;
   margin: 30px auto 30px !important;
