@@ -30,6 +30,7 @@ function goToStart() {
   document.getElementById("cpuDisplay").textContent = "CPU：";
   document.getElementById("resultDisplay").textContent = "";
   document.getElementById("resultDisplay").style.display = "none";
+  document.getElementById("resultOverlay").style.display = "none"; // ← 追加！
   document.getElementById("streakDisplay").textContent = "現在の連勝数：0";
 
   document.getElementById("player-hand-image").src = "button_gu.png";
@@ -92,6 +93,13 @@ function playGame() {
 
   document.getElementById("resultOverlay").style.display = "block";
   document.getElementById("resultDisplay").style.display = "block";
+}
+
+function closeOverlay() {
+  // オーバーレイを隠す
+  document.getElementById("resultOverlay").style.display = "none";
+  // 結果表示も隠す
+  document.getElementById("resultDisplay").style.display = "none";
 }
 
 function updateDisplay() {
