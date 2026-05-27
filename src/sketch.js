@@ -18,6 +18,7 @@ function startGame() {
 function goToStart() {
   document.getElementById("game-screen").style.display = "none";
   document.getElementById("start-screen").style.display = "flex";
+  document.getElementById("clearOverlay").style.display = "none"; // ← 追加！
 
   playerHand = "";
   cpuHand = "";
@@ -25,7 +26,6 @@ function goToStart() {
   winStreak = 0;
   isGameOver = false;
 
-  document.getElementById("backButton").style.display = "none";
   document.getElementById("playerDisplay").textContent = "あなた：";
   document.getElementById("cpuDisplay").textContent = "CPU：";
   document.getElementById("resultDisplay").textContent = "";
@@ -77,7 +77,7 @@ function playGame() {
     if (winStreak === 5) {
       isGameOver = true;
       resultText = "🎉５連勝達成！クリア！";
-      document.getElementById("backButton").style.display = "block";
+      document.getElementById("clearOverlay").style.display = "flex"
     } else {
       resultText = "勝ち！あと " + (5 - winStreak);
     }
