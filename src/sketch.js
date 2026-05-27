@@ -89,6 +89,9 @@ function playGame() {
   }
 
   updateDisplay();
+
+  document.getElementById("resultOverlay").style.display = "block";
+  document.getElementById("resultDisplay").style.display = "block";
 }
 
 function updateDisplay() {
