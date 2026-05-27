@@ -46,11 +46,15 @@ z-index: 1;
 
   transition: 0.2s;
 
-  animation: pyon 1.2s infinite;
 }
 /* ホバー */
 .start-button:hover {
   transform: scale(1.08);
+}
+.start-button:hover{
+  transform:
+    translateY(-10px)
+    scale(1.08);
 }
 
 /* 押した時 */
@@ -231,14 +235,14 @@ z-index: 1;
 
   box-shadow:
     0 8px 0 #ff6bb5,
-    0 0 20px rgba(255,105,180,0.3);
+    
 }
 /* 連勝数 */
 #streakDisplay{
   width: fit-content;
   margin: 0 auto;
   padding: 10px 30px;
-  font-size: 35px;
+  font-size: 50px;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 900;
   color: #ff5cb8;
@@ -322,21 +326,6 @@ bottom: 30px;
     translateY(-5px)
     scale(1.05);
 }
-/* 手の箱 */
-.hand-box{
-
-  background: rgba(255,255,255,0.25);
-
-  padding: 20px 40px;
-
-  border-radius: 40px;
-
-  backdrop-filter: blur(8px);
-
-  box-shadow:
-    0 10px 25px rgba(255,182,193,0.25);
-}
-
 
 
 /* CPUとプレイヤー画像 */
