@@ -28,7 +28,8 @@ function goToStart() {
   document.getElementById("backButton").style.display = "none";
   document.getElementById("playerDisplay").textContent = "あなた：";
   document.getElementById("cpuDisplay").textContent = "CPU：";
-  document.getElementById("resultDisplay").textContent = "結果：";
+  document.getElementById("resultDisplay").textContent = "";
+  document.getElementById("resultDisplay").style.display = "none";
   document.getElementById("streakDisplay").textContent = "現在の連勝数：0";
 
   document.getElementById("player-hand-image").src = "button_gu.png";
@@ -93,8 +94,10 @@ function playGame() {
 function updateDisplay() {
   document.getElementById("playerDisplay").textContent = "あなた：" + playerHand;
   document.getElementById("cpuDisplay").textContent = "CPU：" + cpuHand;
-  document.getElementById("resultDisplay").textContent = "結果：" + resultText;
+  document.getElementById("resultDisplay").textContent = "" + resultText;
   document.getElementById("streakDisplay").textContent = "現在の連勝数：" + winStreak;
+  document.getElementById("resultDisplay").textContent = "" + resultText;
+
 
   const imageMap = {
     "グー": "button_gu.png",
