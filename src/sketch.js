@@ -76,8 +76,18 @@ function playGame() {
 
     if (winStreak === 5) {
       isGameOver = true;
-      resultText = "🎉５連勝達成！クリア！";
       document.getElementById("clearOverlay").style.display = "flex"
+      // updateDisplay() の代わりに画像と連勝数だけ更新する
+      const imageMap = {
+        "グー": "button_gu.png",
+        "チョキ": "button_tyoki.png",
+        "パー": "button_pa.png"
+      };
+      document.getElementById("player-hand-image").src = imageMap[playerHand];
+      document.getElementById("cpu-hand-image").src = imageMap[cpuHand];
+      document.getElementById("streakDisplay").textContent = "現在の連勝数：" + winStreak;
+
+      return; // ここで止める
     } else {
       resultText = "勝ち！あと " + (5 - winStreak);
     }
