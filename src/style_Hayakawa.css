@@ -1,28 +1,34 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 #game-screen {
-  min-height: 100vh;
+  width: 250vw;
+  min-height: 250vh;
   text-align: center;
   font-family: "M PLUS Rounded 1c", sans-serif;
   box-sizing: border-box;
   overflow: hidden;
+  zoom: 0.4;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  zoom: 0.4;
 }
 
 /* 手エリア */
 .hands-area {
   position: relative;
-  size:scale(30);
   width: 1500px;
   height: 600px;
-  padding:50px;
+  padding: 50px;
   margin: 80px 100px 10px !important;
 }
 
-/* CPU・あなたの箱 */
 .hand-box {
   position: absolute;
   top: 0;
@@ -36,13 +42,17 @@
   overflow: visible;
 }
 
-.hand-box:first-child {
+/* あなた：左 */
+.hand-box:last-child {
   left: 0;
+  right: auto;
   text-align: center;
 }
 
-.hand-box:last-child {
+/* CPU：右 */
+.hand-box:first-child {
   right: 0;
+  left: auto;
   text-align: center;
 }
 
@@ -50,7 +60,6 @@
   margin: 0 0 20px;
 }
 
-/* 手画像 */
 #cpu-hand-image,
 #player-hand-image {
   position: absolute;
@@ -60,23 +69,24 @@
   transform-origin: center center;
 }
 
-#cpu-hand-image {
-  left: 20%;
-  transform: translateX(-50%) rotate(90deg) scale(4.5);
-  animation: cpuHandIn 0.45s ease;
+/* あなたの手：もっと左端 */
+#player-hand-image {
+  left: -650px;
+  right: auto;
+  transform: rotate(90deg) scale(4.5);
+  animation: playerHandIn 0.45s ease;
 }
 
-#player-hand-image {
-  right: 20%;
-  transform: translateX(50%) rotate(-90deg) scale(4.5);
-  animation: playerHandIn 0.45s ease;
+/* CPUの手：もっと右端 */
+#cpu-hand-image {
+  right: -650px;
+  left: auto;
+  transform: rotate(-90deg) scale(4.5);
+  animation: cpuHandIn 0.45s ease;
 }
 
 #resultDisplay {
   display: none;
-  font-size: 120px !important;
-  padding: 30px 60px !important;
-  margin: 30px auto 30px !important;
 }
 
 #streakDisplay {
@@ -88,13 +98,13 @@
 .button-area {
   display: flex;
   justify-content: center;
-  gap: 300px;
+  gap: 120px;
   margin-top: 40px !important;
 }
 
 .image-button {
-  width: 330px !important;
-  height: 210px !important;
+  width: 600px !important;
+  height: 400px !important;
   padding: 0 !important;
   border: none;
   border-radius: 55px !important;
@@ -105,32 +115,49 @@
 }
 
 .image-button img {
-  width: 260px !important;
-  height: 180px !important;
+  width: 600px !important;
+  height: 500px !important;
   object-fit: contain;
   display: block;
 }
 
-@keyframes cpuHandIn {
+@keyframes playerHandIn {
   from {
-    transform: translateX(-350px) rotate(90deg) scale(4.5);
+    transform: translateX(-900px) rotate(90deg) scale(4.5);
     opacity: 0;
   }
 
   to {
-    transform: translateX(-50%) rotate(90deg) scale(4.5);
+    transform: translateX(0) rotate(90deg) scale(4.5);
     opacity: 1;
   }
 }
 
-@keyframes playerHandIn {
+@keyframes cpuHandIn {
   from {
-    transform: translateX(350px) rotate(-90deg) scale(4.5);
+    transform: translateX(900px) rotate(-90deg) scale(4.5);
     opacity: 0;
   }
 
   to {
-    transform: translateX(50%) rotate(-90deg) scale(4.5);
+    transform: translateX(0) rotate(-90deg) scale(4.5);
     opacity: 1;
   }
+}
+
+#resultOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+}
+
+#resultDisplay {
+  display: none;
+  position: fixed;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }
