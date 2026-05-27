@@ -107,19 +107,22 @@ z-index: 1;
 }
 #cpuDisplay,
 #playerDisplay{
-
+  width: fit-content;
+  margin: 0 auto 20px;
+  padding: 10px 30px;
   font-size: 38px;
-
   font-family: "M PLUS Rounded 1c", sans-serif;
-
   font-weight: 900;
-
   color: #ff5cb8;
-
+  background: rgba(255,255,255,0.5);
+  border: 5px solid #ffb3d9;
+  border-radius: 999px;
   text-shadow:
     3px 3px 0 rgba(255,255,255,0.7);
-
-  margin-bottom: 15px;
+  box-shadow:
+    0 0 20px rgba(255,255,255,0.7),
+    0 8px 20px rgba(255,182,193,0.35);
+  text-align: center;
 }
 /* CPUとプレイヤー画像 */
 #cpu-hand-image,
@@ -201,21 +204,13 @@ z-index: 1;
 }
 /* 結果 */
 #resultDisplay{
-
   width: fit-content;
-
-  margin: 40px auto 20px;
-
-  padding: 20px 50px;
-
-  font-size: 45px;
-
+  margin: 50px auto 90px;
+  padding: 30px 60px;
+  font-size: 70px;
   font-family: "M PLUS Rounded 1c", sans-serif;
-
   font-weight: 900;
-
   color: white;
-
   background: linear-gradient(
     45deg,
     #ff8fc7,
@@ -223,25 +218,20 @@ z-index: 1;
   );
 
   border-radius: 999px;
-
   text-align: center;
-
   text-shadow:
     3px 3px 0 rgba(255,255,255,0.3);
-
   animation:
     pyon 1.2s infinite,
     glow 1.5s ease-in-out infinite;
-
   box-shadow:
     0 8px 0 #ff6bb5,
-    
 }
 /* 連勝数 */
 #streakDisplay{
   width: fit-content;
   margin: 0 auto;
-  padding: 10px 30px;
+  padding: 20px 70px;
   font-size: 50px;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 900;
@@ -252,6 +242,7 @@ z-index: 1;
   box-shadow:
     0 8px 20px rgba(255,182,193,0.4);
   text-align: center;
+  transform: scale(1.8);
 }
 
 /* 背景がゆっくり動く */
@@ -279,25 +270,14 @@ z-index: 1;
   }
 }
 #backButton{
-
-  margin: 40px auto 0;
-
-  display: block;
-
-  padding: 15px 40px;
-
+  
+  padding: 40px 90px;
   border: none;
-
   border-radius: 999px;
-
-  font-size: 30px;
-
+  font-size: 70px;
   font-family: "M PLUS Rounded 1c", sans-serif;
-
   font-weight: 900;
-
   color: white;
-
   background: linear-gradient(
     45deg,
     #8ed8ff,
@@ -305,39 +285,28 @@ z-index: 1;
   );
 
   box-shadow:
-    0 8px 0 #69bde8,
+    0 8px 0 #69bde8;
     0 15px 25px rgba(142,216,255,0.5);
 
   cursor: pointer;
-
   transition: 0.2s;
   position: fixed;
 
-right: 30px;
+left: 50%;
+top: 65%;
 
-bottom: 30px;
-}
-
-
-
-#backButton:hover{
-
-  transform:
-    translateY(-5px)
-    scale(1.05);
+transform: translateX(-50%);
+  
 }
 
 
 /* CPUとプレイヤー画像 */
 #cpu-hand-image,
 #player-hand-image{
-
   width: 400px;
-
   height: auto;
 }
 @keyframes glow{
-
   0%{
     box-shadow:
       0 8px 0 #ff6bb5,
