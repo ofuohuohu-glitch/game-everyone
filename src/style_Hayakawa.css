@@ -33,18 +33,19 @@ body {
   position: absolute;
   top: 0;
   width: 550px;
-  height: 520px;
+  height: 500px;
   font-size: 34px;
   font-weight: 900;
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
   overflow: visible;
+  transform: scale(1.5);
 }
 
 /* あなた：左 */
 .hand-box:last-child {
-  left: 0;
+  left: 0px;
   right: auto;
   text-align: center;
 }
@@ -63,7 +64,7 @@ body {
 #cpu-hand-image,
 #player-hand-image {
   position: absolute;
-  top: 160px;
+  top: 110px;
   width: 900px !important;
   height: auto;
   transform-origin: center center;
@@ -155,9 +156,36 @@ body {
 
 #resultDisplay {
   display: none;
-  position: fixed;
-  top: 38%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed !important;
+  top: 45% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%)scale(1.5) !important;
   z-index: 1000;
+  margin: 0 !important;
+
+}
+
+#clearOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 182, 193, 0.85);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+#clearText {
+  font-size: 80px;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 900;
+  color: white;
+  text-shadow:
+    4px 4px 0 #ff4fa3,
+    8px 8px 0 #ffb3d9;
+  animation: pyon 1.2s infinite;
+  text-align: center;
 }
