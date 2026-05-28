@@ -189,8 +189,159 @@ body {
   animation: pyon 1.2s infinite;
   text-align: center;
 }
+
 #backButton:hover {
   transform: translateX(-50%) translateY(-2px) scale(1.08);
 
+
+}
+
+@media (max-width: 600px) {
+
+  /* ゲーム画面全体 */
+  #game-screen {
+    width: 100vw !important;
+    min-height: 100vh !important;
+    zoom: 1 !important;
+    transform: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    padding: 20px 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 手エリア全体 */
+  .hands-area {
+    position: static !important;
+    width: 90vw !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* あなた・CPUの箱 */
+  .hand-box {
+    position: static !important;
+    width: 90vw !important;
+    height: auto !important;
+    transform: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px !important;
+    padding: 10px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* あなた：上に・左にラベル・右に画像 */
+  .hand-box:last-child {
+    order: -1 !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+  }
+
+  /* CPU：下に・左に画像・右にラベル */
+  .hand-box:first-child {
+    order: 1 !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-start !important;
+  }
+
+  /* ラベル（あなた：CPU：） */
+  .hand-box p {
+    position: static !important;
+    font-size: 20px !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    width: auto !important;
+  }
+
+  /* 手の画像 ← ここが一番重要！ */
+  #cpu-hand-image,
+  #player-hand-image {
+    position: static !important;
+    /* absoluteをリセット */
+    width: 40vw !important;
+    height: 40vw !important;
+    object-fit: contain !important;
+    transform: none !important;
+    /* rotateをリセット */
+    animation: none !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  /* ぐーちょきぱーボタンエリア */
+  .button-area {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    order: 0 !important;
+  }
+
+  /* ボタン */
+  .image-button {
+    width: 28vw !important;
+    height: 20vw !important;
+    border-radius: 15px !important;
+  }
+
+  .image-button img {
+    width: 24vw !important;
+    height: 17vw !important;
+  }
+
+  /* 連勝数 */
+  #streakDisplay {
+    font-size: 16px !important;
+    padding: 8px 20px !important;
+    transform: none !important;
+    margin: 5px auto !important;
+  }
+
+  /* 結果表示 */
+  #resultDisplay {
+    font-size: 28px !important;
+    padding: 12px 25px !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+
+  /* おめでとうテキスト */
+  #clearText {
+    font-size: 38px !important;
+    padding: 0 15px !important;
+    text-align: center !important;
+  }
+
+  /* スタートに戻るボタン */
+  #backButton {
+    position: static !important;
+    transform: none !important;
+    font-size: 28px !important;
+    padding: 18px 40px !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  /* スタート画面 */
+  .start-title {
+    font-size: 250% !important;
+    text-align: center !important;
+  }
+
+  .start-button {
+    font-size: 35px !important;
+    padding: 15px 50px !important;
+  }
 
 }
