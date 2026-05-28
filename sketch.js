@@ -13,6 +13,7 @@ function setup() {
 function startGame() {
   document.getElementById("start-screen").style.display = "none";
   document.getElementById("game-screen").style.display = "flex";
+  playSound("button");
 }
 
 function goToStart() {
@@ -38,6 +39,7 @@ function goToStart() {
 }
 
 function selectHand(hand) {
+  playSound("button");
   playerHand = hand;
   playGame();
 }
@@ -76,6 +78,7 @@ function playGame() {
 
     if (winStreak === 5) {
       isGameOver = true;
+      playSound("clear");
       document.getElementById("clearOverlay").style.display = "flex"
       // updateDisplay() の代わりに画像と連勝数だけ更新する
       const imageMap = {
@@ -90,13 +93,16 @@ function playGame() {
       return; // ここで止める
     } else {
       resultText = "勝ち！あと " + (5 - winStreak);
+      playSound("win");
     }
 
   } else if (result === "負け") {
     winStreak = 0;
     resultText = "負け…連勝がリセットされた😢";
+    playSound("lose");
   } else {
     resultText = "あいこ！そのまま続けよう🤝";
+    playSound("draw");
   }
 
   updateDisplay();
@@ -140,4 +146,22 @@ function updateDisplay() {
 
   playerImg.style.animation = "playerHandIn 0.4s ease";
   cpuImg.style.animation = "cpuHandIn 0.4s ease";
+}
+
+// 変数の一番下に追加
+let sounds = {};
+
+function setup() {
+  noCanvas();
+
+  // 音声ファイルを読み込む
+  sounds.button = new Audio("決定ボタンを押す31.mp3");
+  sounds.win    = new Audio("クイズ正解4.mp3");
+  sounds.lose   = new Audio("クイズ不正解1.mp3");
+  sounds.draw   = new Audio("パッ.mp3");
+  sounds.clear  = new Audio("ラッパのファンファーレ.mp3");
+}
+function playSound(name) {
+  sounds[name].currentTime = 0; // 最初から再生する
+  sounds[name].play();
 }
