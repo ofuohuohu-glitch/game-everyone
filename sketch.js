@@ -5,20 +5,38 @@ let winStreak = 0;
 let isGameOver = false;
 
 let hands = ["グー", "チョキ", "パー"];
+let sounds = {};
 
 function setup() {
   noCanvas();
+
+  sounds.button = new Audio("決定ボタンを押す31.mp3");
+  sounds.win = new Audio("クイズ正解4.mp3");
+  sounds.lose = new Audio("クイズ不正解1.mp3");
+  sounds.draw = new Audio("パッ.mp3");
+  sounds.clear = new Audio("ラッパのファンファーレ.mp3");
+  sounds["start-bgm"] = new Audio("ほんわかぷっぷー.mp3");
+  sounds["game-bgm"] = new Audio("クレイジークッキング.mp3");
+
+  sounds["start-bgm"].loop = true;
+  sounds["game-bgm"].loop = true;
 }
 
 function startGame() {
   document.getElementById("start-screen").style.display = "none";
   document.getElementById("game-screen").style.display = "flex";
+
+  stopSound("start-bgm");
+  playSound("button");
+  playSound("game-bgm");
 }
 
 function goToStart() {
   document.getElementById("game-screen").style.display = "none";
   document.getElementById("start-screen").style.display = "flex";
-  document.getElementById("clearOverlay").style.display = "none"; // ← 追加！
+  document.getElementById("clearOverlay").style.display = "none";
+
+  stopSound("game-bgm");
 
   playerHand = "";
   cpuHand = "";
@@ -30,14 +48,18 @@ function goToStart() {
   document.getElementById("cpuDisplay").textContent = "CPU：";
   document.getElementById("resultDisplay").textContent = "";
   document.getElementById("resultDisplay").style.display = "none";
-  document.getElementById("resultOverlay").style.display = "none"; // ← 追加！
+  document.getElementById("resultOverlay").style.display = "none";
   document.getElementById("streakDisplay").textContent = "現在の連勝数：0";
 
   document.getElementById("player-hand-image").src = "button_gu.png";
   document.getElementById("cpu-hand-image").src = "button_gu.png";
+
+  playSound("button");
+  playSound("start-bgm");
 }
 
 function selectHand(hand) {
+  playSound("button");
   playerHand = hand;
   playGame();
 }
@@ -48,9 +70,7 @@ function getCpuHand() {
 }
 
 function judgeResult(player, cpu) {
-  if (player === cpu) {
-    return "あいこ";
-  }
+  if (player === cpu) return "あいこ";
 
   if (
     (player === "グー" && cpu === "チョキ") ||
@@ -64,9 +84,7 @@ function judgeResult(player, cpu) {
 }
 
 function playGame() {
-  if (isGameOver === true) {
-    return;
-  }
+  if (isGameOver) return;
 
   cpuHand = getCpuHand();
   let result = judgeResult(playerHand, cpuHand);
@@ -76,27 +94,24 @@ function playGame() {
 
     if (winStreak === 5) {
       isGameOver = true;
-      document.getElementById("clearOverlay").style.display = "flex"
-      // updateDisplay() の代わりに画像と連勝数だけ更新する
-      const imageMap = {
-        "グー": "button_gu.png",
-        "チョキ": "button_tyoki.png",
-        "パー": "button_pa.png"
-      };
-      document.getElementById("player-hand-image").src = imageMap[playerHand];
-      document.getElementById("cpu-hand-image").src = imageMap[cpuHand];
-      document.getElementById("streakDisplay").textContent = "現在の連勝数：" + winStreak;
-
-      return; // ここで止める
-    } else {
-      resultText = "勝ち！あと " + (5 - winStreak);
+      updateDisplay();
+      stopSound("game-bgm");
+      playSound("clear");
+      document.getElementById("clearOverlay").style.display = "flex";
+      return;
     }
+
+    resultText = "勝ち！あと " + (5 - winStreak);
+    playSound("win");
 
   } else if (result === "負け") {
     winStreak = 0;
     resultText = "負け…連勝がリセットされた😢";
+    playSound("lose");
+
   } else {
     resultText = "あいこ！そのまま続けよう🤝";
+    playSound("draw");
   }
 
   updateDisplay();
@@ -106,9 +121,7 @@ function playGame() {
 }
 
 function closeOverlay() {
-  // オーバーレイを隠す
   document.getElementById("resultOverlay").style.display = "none";
-  // 結果表示も隠す
   document.getElementById("resultDisplay").style.display = "none";
 }
 
@@ -117,8 +130,6 @@ function updateDisplay() {
   document.getElementById("cpuDisplay").textContent = "CPU：" + cpuHand;
   document.getElementById("resultDisplay").textContent = resultText;
   document.getElementById("streakDisplay").textContent = "現在の連勝数：" + winStreak;
-  document.getElementById("resultDisplay").style.display = "block";
-
 
   const imageMap = {
     "グー": "button_gu.png",
@@ -140,4 +151,18 @@ function updateDisplay() {
 
   playerImg.style.animation = "playerHandIn 0.4s ease";
   cpuImg.style.animation = "cpuHandIn 0.4s ease";
+}
+
+function playSound(name) {
+  if (!sounds[name]) return;
+
+  sounds[name].currentTime = 0;
+  sounds[name].play();
+}
+
+function stopSound(name) {
+  if (!sounds[name]) return;
+
+  sounds[name].pause();
+  sounds[name].currentTime = 0;
 }
