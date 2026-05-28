@@ -36,6 +36,7 @@ function goToStart() {
 
   document.getElementById("player-hand-image").src = "button_gu.png";
   document.getElementById("cpu-hand-image").src = "button_gu.png";
+  playSound("button");
 }
 
 function selectHand(hand) {
