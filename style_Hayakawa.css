@@ -220,35 +220,117 @@ body {
   }
 
   #rotateNotice p {
-    font-size: 40px;
+    font-size: 30px;
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 900;
     color: #ff4fa3;
     text-align: center;
     line-height: 1.6;
+    white-space: nowrap;
   }
 
 }
 
-/* 横画面・高さ大きめ（iPhone Pro Max など） */
-/* 横画面のスマホ（Safari対応版） */
 @media (min-aspect-ratio: 1/1) and (max-height: 600px) {
 
-  /* ゲーム画面全体を画面に収める */
-  #game-screen {
-    zoom: normal;
-    /* zoomを無効化 */
-    width: 100vw !important;
-    height: 100vh !important;
-    min-height: 100vh !important;
-    transform: scale(0.4);
-    transform-origin: center center;
-    /* scaleで余った分を相殺して中央に置く */
+  .start-title {
+    transform: scale(0.5);
+    white-space: nowrap;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
-    margin: 0 !important;
     translate: -50% -50%;
+    /* 自分の中心を画面中心に合わせる */
+  }
+
+  .start-button {
+    transform: scale(0.6);
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    translate: -50% -50%;
+    /* 自分の中心を画面中心に合わせる */
+  }
+
+  #game-screen {
+    transform: scale(1);
+  }
+
+  .hands-area {
+    transform: scale(0.7);
+  }
+
+  #player-hand-image {
+    padding-bottom: 50px;
+    position: absolute;
+    top: 40%;
+    left: -10%;
+    translate: -50% -50%;
+  }
+
+  #cpu-hand-image {
+    padding-bottom: 50px;
+    position: absolute;
+    top: 40%;
+    left: 110%;
+    translate: -50% -50%;
+  }
+
+  #playerDisplay {
+    font-size: 60px;
+    position: absolute;
+    top: -15%;
+    left: 0%;
+    translate: -50% -50%;
+  }
+
+  #cpuDisplay {
+    font-size: 60px;
+    position: absolute;
+    top: -15%;
+    left: 100%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  #backButton {
+    transform: scale(0.5);
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  .button-area {
+    transform: scale(0.6);
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  #streakDisplay {
+    transform: scale(1.3);
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  #resultDisplay {
+    font-size: 60px;
+  }
+
+  #clearText {
+    font-size: 65px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
   }
 
 }
