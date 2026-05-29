@@ -231,60 +231,24 @@ body {
 }
 
 /* 横画面・高さ大きめ（iPhone Pro Max など） */
+/* 横画面のスマホ（Safari対応版） */
 @media (min-aspect-ratio: 1/1) and (max-height: 600px) {
 
-  .start-title {
-    zoom: 0.7;
-  }
-
-  .start-button {
-    zoom: 0.7;
-  }
-
+  /* ゲーム画面全体を画面に収める */
   #game-screen {
-    zoom: 0.41;
-  }
-
-  .hands-area {
-    zoom: 0.7;
-  }
-
-  #player-hand-image {
-    padding-bottom: 100px;
-  }
-
-  #cpu-hand-image {
-    padding-bottom: 100px;
-  }
-
-  #playerDisplay {
-    margin-top: 50px;
-    font-size: 60px;
-  }
-
-  #cpuDisplay {
-    font-size: 60px;
-    margin-top: 50px;
-  }
-
-  #backButton {
-    zoom: 0.5;
-  }
-
-  .button-area {
-    zoom: 0.6;
-  }
-
-  #streakDisplay {
-    zoom: 0.8;
-  }
-
-  #resultDisplay {
-    font-size: 60px;
-  }
-
-  #clearText {
-    font-size: 65px;
+    zoom: normal;
+    /* zoomを無効化 */
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    transform: scale(0.4);
+    transform-origin: center center;
+    /* scaleで余った分を相殺して中央に置く */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 !important;
+    translate: -50% -50%;
   }
 
 }
