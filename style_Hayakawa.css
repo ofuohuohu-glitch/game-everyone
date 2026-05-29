@@ -256,7 +256,7 @@ body {
     /* PCのzoomを無効化 */
     zoom: normal;
     /* 250vw×250vhのゲーム画面をまるごと縮小 */
-    transform: scale(0.3);
+    transform: scale(0.4);
     transform-origin: center center;
     /* 画面中央に固定 */
     position: fixed;
