@@ -234,19 +234,19 @@ body {
 @media (min-aspect-ratio: 1/1) and (max-height: 600px) {
 
   .start-title {
-    zoom: 0.85;
+    zoom: 0.7;
+  }
+
+  .start-button {
+    zoom: 0.7;
   }
 
   #game-screen {
-    zoom: 0.4;
+    zoom: 0.41;
   }
 
   .hands-area {
-    zoom: 0.9;
-  }
-
-  .hand-box {
-    background-color: aliceblue;
+    zoom: 0.7;
   }
 
   #player-hand-image {
@@ -258,15 +258,25 @@ body {
   }
 
   #playerDisplay {
+    margin-top: 50px;
     font-size: 60px;
   }
 
   #cpuDisplay {
     font-size: 60px;
+    margin-top: 50px;
   }
 
   #backButton {
     zoom: 0.7;
+  }
+
+  .button-area {
+    zoom: 0.8;
+  }
+
+  #streakDisplay {
+    zoom: 0.8;
   }
 
 }
