@@ -234,7 +234,7 @@ body {
 @media (min-aspect-ratio: 1/1) and (max-height: 600px) {
 
   .start-title {
-    transform: scale(0.5);
+    transform: scale(0.4);
     white-space: nowrap;
     position: absolute;
     top: 30%;
@@ -256,90 +256,97 @@ body {
     /* PCのzoomを無効化 */
     zoom: normal;
     /* 250vw×250vhのゲーム画面をまるごと縮小 */
-    transform: scale(0.4);
+    transform: scale(0.3);
     transform-origin: center center;
     /* 画面中央に固定 */
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     translate: -50% -50%;
     margin: 0 !important;
-
-    .hands-area {
-      transform: scale(0.7);
-    }
-
-    #player-hand-image {
-      padding-bottom: 50px;
-      position: absolute;
-      top: 40%;
-      left: -10%;
-      translate: -50% -50%;
-    }
-
-    #cpu-hand-image {
-      padding-bottom: 50px;
-      position: absolute;
-      top: 40%;
-      left: 110%;
-      translate: -50% -50%;
-    }
-
-    #playerDisplay {
-      font-size: 60px;
-      position: absolute;
-      top: -15%;
-      left: 0%;
-      translate: -50% -50%;
-    }
-
-    #cpuDisplay {
-      font-size: 60px;
-      position: absolute;
-      top: -15%;
-      left: 100%;
-      translate: -50% -50%;
-      white-space: nowrap;
-    }
-
-    #backButton {
-      transform: scale(0.5);
-      position: absolute;
-      top: 75%;
-      left: 50%;
-      translate: -50% -50%;
-      white-space: nowrap;
-    }
-
-    .button-area {
-      transform: scale(0.6);
-      position: absolute;
-      top: 80%;
-      left: 50%;
-      translate: -50% -50%;
-      white-space: nowrap;
-    }
-
-    #streakDisplay {
-      transform: scale(1.3);
-      position: absolute;
-      top: 64%;
-      left: 50%;
-      translate: -50% -50%;
-      white-space: nowrap;
-    }
-
-    #resultDisplay {
-      font-size: 60px;
-    }
-
-    #clearText {
-      font-size: 65px;
-      position: absolute;
-      top: 25%;
-      left: 50%;
-      translate: -50% -50%;
-      white-space: nowrap;
-    }
-
   }
+
+  .hands-area {
+    transform: scale(0.7);
+  }
+
+  #player-hand-image {
+    padding-bottom: 50px;
+    position: absolute;
+    top: 40%;
+    left: -10%;
+    translate: -50% -50%;
+  }
+
+  #cpu-hand-image {
+    padding-bottom: 50px;
+    position: absolute;
+    top: 40%;
+    left: 110%;
+    translate: -50% -50%;
+  }
+
+  #playerDisplay {
+    font-size: 60px;
+    position: absolute;
+    top: -15%;
+    left: 0%;
+    translate: -50% -50%;
+  }
+
+  #cpuDisplay {
+    font-size: 60px;
+    position: absolute;
+    top: -15%;
+    left: 100%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  #backButton {
+    transform: scale(0.5);
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  .button-area {
+    transform: scale(0.6);
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  #streakDisplay {
+    transform: scale(1.3);
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  #resultDisplay {
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+  #clearText {
+    font-size: 65px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    translate: -50% -50%;
+    white-space: nowrap;
+  }
+
+
+}
