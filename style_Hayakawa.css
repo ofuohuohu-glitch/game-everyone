@@ -268,15 +268,23 @@ body {
   }
 
   #backButton {
-    zoom: 0.7;
+    zoom: 0.5;
   }
 
   .button-area {
-    zoom: 0.8;
+    zoom: 0.6;
   }
 
   #streakDisplay {
     zoom: 0.8;
+  }
+
+  #resultDisplay {
+    font-size: 60px;
+  }
+
+  #clearText {
+    font-size: 65px;
   }
 
 }
